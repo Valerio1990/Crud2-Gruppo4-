@@ -1,0 +1,18 @@
+<p>table works!</p>
+
+<input type="text" placeholder="cerca per codice" [(ngModel)] = "ricerca">
+<button (click) ="cerca()">Cerca</button>
+
+<table>
+        <tr>
+            <th>Codice</th>
+            <th>Descrizione</th>
+            <th>Seleziona</th>
+        </tr>
+        <tr *ngFor = "let p of prodotti; index as i">
+            <td>{{p.codice}}</td>
+            <td>{{p.descrizione}}</td>
+            <td><button (click) ="seleziona(i)">Seleziona</button></td>
+        </tr>
+
+</table>
