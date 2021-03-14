@@ -1,10 +1,12 @@
 <div id="area1">
-<input type="text" placeholder="inserisci codice" [(ngModel)] ="codice">
-<input type="text" placeholder="inserisci descrizione" [(ngModel)] ="descrizione">
-<br>
-<button (click) ="modifica()">Modifica</button>
-<button (click) ="conferma()">Conferma</button>
-<button (click) ="annulla()">Annulla</button>
-<button (click) ="rimuovi()">Rimuovi</button>
-<button (click) ="aggiungi()">Aggiungi</button>
+    <label id="input">
+        <input type="text" placeholder="inserisci codice" [(ngModel)]="codice">
+        <input type="text" placeholder="inserisci descrizione" [(ngModel)]="descrizione">
+    </label>
+    <br>
+    <button (click)="modifica()">Modifica</button>
+    <button (click)="conferma()">Conferma</button>
+    <button (click)="annulla()">Annulla</button>
+    <button (click)="rimuovi()">Rimuovi</button>
+    <button (click)="aggiungi()">Aggiungi</button>
 </div>
