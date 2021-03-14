@@ -20,8 +20,8 @@ public class CrudController {
 
     @RequestMapping("/aggiungi")
     public CarrelloDto aggiungi(@RequestBody ProdottoDto dto) {
-
-        throw new UnsupportedOperationException("Not supported yet."); //To change body of generated methods, choose Tools | Templates.
+    return crudService.aggiungi(dto.getProdotto());
+        
     }
 
     //dubbio se passare un prodottoDto o criterio ricercadto
@@ -32,16 +32,16 @@ public class CrudController {
 
     @RequestMapping("/rimuovi")
     public CarrelloDto rimuovi(@RequestBody ProdottoDto dto) {
-        throw new UnsupportedOperationException("Not supported yet."); //To change body of generated methods, choose Tools | Templates.
+        return crudService.rimuovi(dto.getProdotto());
     }
 
     @RequestMapping("/aggiorna")
     public CarrelloDto aggiorna() {
-        throw new UnsupportedOperationException("Not supported yet."); //To change body of generated methods, choose Tools | Templates.
+        return crudService.aggiornaCarrello();
     }
 
     @RequestMapping("/ricerca")
     public CarrelloDto ricerca(@RequestBody CriterioRicercaDto dto) {
-        throw new UnsupportedOperationException("Not supported yet."); //To change body of generated methods, choose Tools | Templates.
+        return crudService.ricercaProdotto(dto.getStringa());
     }
 }

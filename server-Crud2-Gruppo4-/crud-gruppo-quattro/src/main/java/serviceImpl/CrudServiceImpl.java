@@ -6,39 +6,53 @@
 package serviceImpl;
 
 import dto.CarrelloDto;
+import java.util.ArrayList;
+import java.util.List;
 import model.Prodotto;
 import org.springframework.stereotype.Service;
+import repository.CrudRepository;
 import service.CrudService;
 
-/**
- *
- * @author Valerio
- */
+@Service
 public class CrudServiceImpl implements CrudService {
+    
+    CrudRepository crudRepository;
 
     @Override
     public CarrelloDto aggiungi(Prodotto prodotto) {
-        throw new UnsupportedOperationException("Not supported yet."); //To change body of generated methods, choose Tools | Templates.
+       crudRepository.save(prodotto);
+        return aggiornaCarrello();
     }
 
     @Override
     public CarrelloDto modifica(Prodotto prodotto) {
+        //Dobbiamo trovare un modo per modificare il prodotto
         throw new UnsupportedOperationException("Not supported yet."); //To change body of generated methods, choose Tools | Templates.
+        
     }
 
     @Override
     public CarrelloDto rimuovi(Prodotto prodotto) {
-        throw new UnsupportedOperationException("Not supported yet."); //To change body of generated methods, choose Tools | Templates.
+        crudRepository.delete(prodotto);
+        return aggiornaCarrello();
     }
 
     @Override
     public CarrelloDto aggiornaCarrello() {
-        throw new UnsupportedOperationException("Not supported yet."); //To change body of generated methods, choose Tools | Templates.
+       CarrelloDto dto = new CarrelloDto();
+       List<Prodotto> listaProdotti = crudRepository.findAll();
+       if(listaProdotti == null) {
+           dto.setListaProdotti(new ArrayList());
+       } else {
+           dto.setListaProdotti(listaProdotti);
+       }
+        return dto;
     }
 
     @Override
     public CarrelloDto ricercaProdotto(String stringa) {
-        throw new UnsupportedOperationException("Not supported yet."); //To change body of generated methods, choose Tools | Templates.
+        List<Prodotto> lista = crudRepository.findByCodice(stringa);
+        return new CarrelloDto(lista);
     }
     
 }
