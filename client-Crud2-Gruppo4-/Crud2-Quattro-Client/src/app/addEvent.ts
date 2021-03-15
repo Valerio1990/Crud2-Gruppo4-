@@ -1,2 +1,2 @@
-export class AddEvent implements Event{
+export class AddEvent implements Event {
 }
